@@ -1,0 +1,9 @@
+{
+  "name": "scheduler",
+  "version": "0.0.0",
+  "description": "Scheduler",
+  "main": "server.js",
+  "author": {
+    "name": "UGAT174"
+  }
+}
