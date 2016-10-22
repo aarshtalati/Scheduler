@@ -8,6 +8,9 @@ app.config(['$routeProvider', '$locationProvider',
                 templateUrl: '/partials/main',
                 controller: 'mainController'
             })
+            .when('/about', {
+                templateUrl: '/partials/about'
+            })
             .otherwise({
                 redirectTo: '/'
             });
@@ -15,5 +18,4 @@ app.config(['$routeProvider', '$locationProvider',
 ]);
 
 app.controller('mainController', function ($scope) {
-    $scope.test = '123 test';
 });

@@ -8,4 +8,23 @@ html
         link(rel="stylesheet", href="/css/site.css")
     body(ng-app="app")
         block main-content
-        include scripts
+        
+
+
+doctype html
+html(class="col-md-12")
+  head
+    base(href="/")
+    link(rel="icon", type="image/png", href="/favicon.png")
+    link(rel="stylesheet", href="/vendor/bootstrap/dist/css/bootstrap.css")
+    link(rel="stylesheet", href="/vendor/toastr/toastr.css")
+    link(rel="stylesheet", href="/css/site.css")
+  body
+
+    block content
+    include scripts
+
+    footer
+       hr(style="height:0.5px; background-color:#333;")
+      .container
+          p(class="text-muted credit") Aarsh Talati
