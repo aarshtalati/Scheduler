@@ -30,7 +30,13 @@ app.use(stylus.middleware({
     compile: compile
 }
 ));
-app.use(express.static(__dirname + '/public'));
+
+if ('development' == env) {
+   // configure stuff here
+    app.use(express.static(__dirname + '/public'));   
+} else {
+    app.use(express.static(__dirname + '/public'));
+}
 
 app.get('/partials/:partialPath', function (req, res) {
     res.render('partials/' + req.params.partialPath);
