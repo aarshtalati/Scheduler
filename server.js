@@ -12,6 +12,7 @@ var bodyParser = require('body-parser');
 
 // var env = process.env.NODE_ENV = process.env.NODE_ENV | 'development';
 var env = process.env.NODE_ENV || 'development';
+console.log('Environment: ' + env);
 var app = express();
 
 function compile(str, path) {
