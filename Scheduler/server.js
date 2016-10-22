@@ -39,5 +39,5 @@ app.get('*', function (req, res) {
     res.render('index');
 });
 
-var port = process.env.port || 1337;
+var port = process.env.port || 3030;
 app.listen(port);
