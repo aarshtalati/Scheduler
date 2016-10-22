@@ -48,6 +48,7 @@ app.get('*', function (req, res) {
 });
 
 console.log('Getting Port ...')
-var port = process.env.port || 3030;
-app.listen(port);
+app.listen(process.env.PORT || 3030, function () {
+  console.log('Example app listening');
+});
 console.log(port)
