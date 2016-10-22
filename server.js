@@ -39,5 +39,7 @@ app.get('*', function (req, res) {
     res.render('index');
 });
 
+console.log('Getting Port ...')
 var port = process.env.port || 3030;
 app.listen(port);
+console.log(port)
