@@ -1,2 +1,31 @@
 ﻿.container.body-content
-    h2 Appointments
+	h2 Appointments ( {{hours.length-appointments.length}} available )
+	div.container 
+	ul.list-group
+		li.list-group-item(data-ng-repeat="hr in hours" data-ng-class="booked.indexOf(hr) != -1 ? 'list-group-item-danger' : ''" data-ng-click="trackSelectedItem(hr)" data-toggle='modal' data-target="#myModal" data-backdrop="static" data-keyboard="false") {{hr>12 ? hr-12 : hr}}
+	
+	#myModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='myModalLabel')
+		.modal-dialog(role='document')
+			.modal-content
+				.modal-header
+					button.close(type='button' data-dismiss='modal' aria-label='Close' title="Discard Changes")
+						span(aria-hidden='true') &times;
+					h4#myModalLabel.modal-title Appointment at {{selected > 12 ? (selected-12) : selected}}
+				.modal-body
+					form.form(name="frmUpsertAppointment")
+						div.form-group(data-ng-class="{'has-error': (showValidationErrors || !frmUpsertAppointment.Name.$pristine) && frmUpsertAppointment.Name.$invalid}")
+							div.row
+								div.col-md-6
+									label(for='Name') Name
+								div.col-md-6
+									input#Name.form-control.input-md(type='text' name='Name' placeholder='Name' data-ng-model='editName' data-ng-required='true')
+						div.form-group(data-ng-class="{'has-error': (showValidationErrors || !frmUpsertAppointment.Phone.$pristine) && frmUpsertAppointment.Phone.$invalid}")
+							div.row
+								div.col-md-6
+									label(for='Phone') Phone
+								div.col-md-6
+									input#Name.form-control.input-md(type='tel' name='Phone' placeholder='Phone #' data-ng-model='editPhone' data-ng-required='true' data-ng-pattern='phoneRegEx')
+					div {{showValidationErrors}} {{frmUpsertAppointment.Name.$invalid}} {{frmUpsertAppointment.Name.$pristine}} {{frmUpsertAppointment.Phone.$invalid}} {{frmUpsertAppointment.Phone.$pristine}}
+				.modal-footer
+					button.btn.btn-default(type='button' data-dismiss='modal') Nevermind
+					button.btn.btn-primary(type='button' data-ng-click="upsertAppointment(selected)") Save
