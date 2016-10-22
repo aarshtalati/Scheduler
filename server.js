@@ -10,7 +10,8 @@ var stylus = require('stylus');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-var env = process.env.NODE_ENV = process.env.NODE_ENV | 'development';
+// var env = process.env.NODE_ENV = process.env.NODE_ENV | 'development';
+var env = process.env.NODE_ENV || 'development';
 var app = express();
 
 function compile(str, path) {
