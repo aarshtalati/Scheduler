@@ -1,0 +1,17 @@
+{
+  "name": "Scheduler",
+  "description": "",
+  "main": "",
+  "authors": [
+    "\"Aarsh Talati\""
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
